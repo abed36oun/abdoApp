@@ -1,118 +1,102 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react'
+import { StyleSheet, View, Text, SafeAreaView, ScrollView ,Image} from 'react-native'
+import MainNavigation from './route/nav';
+import Card from './src/componentss/card';
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+const App = () => {
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+    const data = [
+      { TT: 'btata', price: 10 },
+      { TT: 'roz', price: 7 },
+      { TT: 'batngan', price: 33 },
+     { TT: 'shawerma', price: 45 },
+     { TT: 'stick', price: 120 },
+     { TT: 'mansaf', price: 300 },
+     { TT: 'pizza', price: 60 },
+     { TT: 'frika', price: 20 },
+     { TT: 'water', price: 5 },
+     { TT: 'cola', price: 7 },
+     { TT: 'tamer', price: 2 },
+    { TT: 'ktaeyef', price: 7 },
+ ];
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+    const renderCards = () => {
+    const cards = data.map(product => {
+        return <Card title={product.TT} price={product.price} />;
+    });
+    return cards;
+     };
 
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+    return (
+        <SafeAreaView style={styles.container}>
+            
+            <MainNavigation />
+        </SafeAreaView>
+    );
+};
 
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+{/* // return(
+//   <SafeAreaView style={styles.container} >
+//     <Card  title ="btata" price= "10" />
+// </SafeAreaView>
+// )
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+// }; */}
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+    container: {
+        flex: 1,
+        backgroundColor: 'orange',
+        // alignItems: 'center',
+        // justifyContent: 'center'
+    },
+    container2: {
+        backgroundColor: 'white',
+        borderWidth: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginHorizontal: 40,
+        padding: 20,
+    },
+    container3: {
+        height: '100%',
+        backgroundColor: 'gray',
+        borderWidth: 1,
+        // marginRight: 325,
+        // marginTop: -70,
+        shadowColor: '#000',
+        width: 125,
+        justifyContent: 'center',
+        alignItems: 'center',
+        // marginLeft: 100
+    },
 
+    Text: {
+        fontSize: 10, color: 'black', justifyContent: 'center', alignItems: 'center'
+    },
+    Text2: {
+        fontSize: 40, color: 'black', textAlign: 'center', fontWeight: 'bold'
+    },
+    textContainer: {
+        borderWidth: 1,
+        width: '55%',
+        height: '100%',
+        borderStyle: 'dashed',
+        alignItems: 'center',
+        justifyContent: 'center',
+        // alignContent:'center'
+    },
+    upperContainer: {
+        width: "100%",
+        flexDirection: 'row-reverse',
+        justifyContent: "space-between",
+        height: 100,
+    },
+    contentContainerStyle: {
+        alignItems: 'center'
+    }
+
+
+})
 export default App;
